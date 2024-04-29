@@ -1,20 +1,17 @@
 import React from "react";
-import notes from "../notes";
-import Entry from "./Entry";
-function createCard(obj)
-{
-    return <Entry
 
-        key={obj.key}
-        title={obj.title}
-        content={obj.content}
-    />
-}
+function Note(props) {
+  function handleClick() {
+    props.delItem(props.id);
+  }
 
-function Note(){
-    return(
-        notes.map(createCard)
-    );
+  return (
+    <div className="note">
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
+      <button onClick={handleClick}>DELETE</button>
+    </div>
+  );
 }
 
 export default Note;
